@@ -1,18 +1,10 @@
-## Getting Started
+## Задание 13.3.3 (HW-02)
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+Это самый простой чат-сервер на базе.
 
-## Folder Structure
+Минимальная функциональность успешно выполненного задания: к серверу может присоединиться несколько клиентов одновременно. Всё, что пишется на любом из клиентов, передается в окна других клиентов после нажатия на Enter. При отсоединении любого клиента программа должна продолжать работать корректно. Уже присоединенные клиенты продолжают общаться между собой, и к ним могут присоединиться новые.
 
-The workspace contains two folders by default, where:
+Ниже можно увидеть скринкаст работы самой простейшей реализации задания. Автор делал эту реализацию во время записи скринкаста без подготовки и без дублей, поэтому вы можете понаблюдать за размышлениями, вопросами и решениями, которые предлагает эксперт в Java.
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
-
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
-
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
-
-## Dependency Management
-
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+# Как запустить чат-сервер
+> java -jar chat.jar
