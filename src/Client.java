@@ -6,29 +6,38 @@ import java.net.Socket;
 import java.util.Scanner;
 
 class Client implements Runnable {
+    Scanner in;
+    PrintStream out;
+
     Socket socket;
+    ChatServer server;
  
-    public Client(Socket socket){
- 
+    public Client(Socket socket, ChatServer server){
+        this.server = server;
         this.socket = socket;
+        new Thread (this).start();
+    }
+
+    public void send(String msg){
+        out.println(msg);
     }
  
     public void run() {
         try {
+
             // получаем потоки ввода и вывода
             InputStream is = socket.getInputStream();
             OutputStream os = socket.getOutputStream();
- 
+
             // создаем удобные средства ввода и вывода
-            Scanner in = new Scanner(is);
-            PrintStream out = new PrintStream(os);
+            in = new Scanner(is);
+            out = new PrintStream(os);
  
             // читаем из сети и пишем в сеть
-            out.println("Welcome to mountains!");
+            out.println("Welcome!");
             String input = in.nextLine();
             while (!input.equals("bye")) {
-                out.println(input + "-" + input + "-" +
-                        input.substring(input.length() / 2) + "...");
+                server.sendAll(input);
                 input = in.nextLine();
             }
             socket.close();
